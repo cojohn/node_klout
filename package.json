@@ -1,5 +1,5 @@
 {
-    "author": "Christopher John <cojohn@gmail.com>",
+    "author": "cojohn <cojohn@gmail.com>",
     "name": "node_klout",
     "description": "Klout API wrapper.",
     "version": "0.1.0",
@@ -11,6 +11,5 @@
     "main": "./index",
     "engines": {
       "node": "~v0.4.12"
-    },
-    "dependencies": { }
+    }
 }
