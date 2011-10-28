@@ -7,9 +7,8 @@ haven't implemented that yet. Like the API, users is always an array.
 I'll write a test or something, too.
 
 ```javascript
-var Klout = require("../lib/klout");
-
-klout = new Klout("YOUR KEY");
+var Klout = require("node_klout"),
+	klout = new Klout("YOUR KEY");
 
 klout.getKlout("registerzero", function(error, users) {
 	console.log(users);
