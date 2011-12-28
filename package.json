@@ -1,8 +1,8 @@
 {
-    "author": "cojohn <cojohn@gmail.com>",
+    "author": "Christopher John <cojohn@gmail.com>",
     "name": "node_klout",
     "description": "Klout API wrapper.",
-    "version": "0.1.0",
+    "version": "0.1.1",
     "repository": {
       "type": "git",
       "url": "git://github.com/cojohn/node_klout.git"
@@ -10,6 +10,6 @@
     "keywords": ["klout", "node_klout", "api"],
     "main": "./index",
     "engines": {
-      "node": "~v0.4.12"
+      "node": ">= 0.4.10"
     }
 }
