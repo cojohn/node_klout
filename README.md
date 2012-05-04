@@ -41,6 +41,26 @@ The returned `klout_user` variable is an object as documented by the Klout API v
 }
 ```
 
+The following methods are supported, where `klout_response` is an object as documented by the Klout API v2 docs:
+
+```javascript
+klout_v2.getUser(klout_id, function(error, klout_response) {
+	// ...
+});
+
+klout_v2.getUserScore(klout_id, function(error, klout_response) {
+	// ...
+});	
+
+klout_v2.getUserTopics(klout_id, function(error, klout_response) {
+	// ...
+});	
+klout_v2.getUserInfluence(klout_id, function(error, klout_response) {
+	// ...
+});
+```
+
+
 ## Version 1
 
 All methods are supported:
