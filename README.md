@@ -2,13 +2,48 @@
 
 Simple wrapper for the Klout API. Users is an array. The constructor supports passing XML, but I haven't implemented that yet. Like the API, users is always an array.
 
-To run the tests, edit test/test.js, replacing YOUR_KEY with your application's API key, then:
+To run the tests, edit `./test/test.js`, replacing YOUR_KEY with your application's API key, then:
 
 ```
-node test/test.js
+node test/test
 ```
 
-All methods:
+## Version v2
+
+In order to use the `v2` API, instantiate a new instance of node_klout like so:
+
+```javascript
+var Klout = require("node_klout"),
+	klout = new Klout("YOUR_V2_KEY", "json", "v2");
+```
+
+or:
+
+```javascript
+var Klout = require("node_klout"),
+	klout = new Klout().setKey("YOUR_V2_KEY").setVersion("v2");
+```
+
+Node_klout supports the retrieval of a user's Klout identifier by Twitter screen name or numeric identifier.
+
+```javascript
+klout.getKloutIdentity(twitter_screen_name_or_identifier, function(error, klout_user) {
+	...
+});
+```
+
+The returned `klout_user` variable is an object as documented by the Klout API v2 docs:
+
+```
+{
+	"id": "123456789",
+	"network": "ks"
+}
+```
+
+## Version 1
+
+All methods are supported:
 
 ```javascript
 var Klout = require("node_klout"),
