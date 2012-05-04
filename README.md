@@ -45,18 +45,23 @@ The following methods are supported, where `klout_response` is an object as docu
 
 ```javascript
 klout_v2.getUser(klout_id, function(error, klout_response) {
-	// ...
+	// Returns a user object
 });
 
 klout_v2.getUserScore(klout_id, function(error, klout_response) {
-	// ...
+	// Returns a user's score object
 });	
 
 klout_v2.getUserTopics(klout_id, function(error, klout_response) {
-	// ...
+	// Returns an array of user topics
 });	
+
 klout_v2.getUserInfluence(klout_id, function(error, klout_response) {
-	// ...
+	// Returns a user's influence object
+});
+
+klout_v2.getUserNetworkHandle(klout_id, function(error, klout_response) {
+	// Returns a user's network (Twitter) identifier
 });
 ```
 

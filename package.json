@@ -2,7 +2,7 @@
     "author": "Christopher John <cojohn@gmail.com>",
     "name": "node_klout",
     "description": "Klout API wrapper.",
-    "version": "0.2.1",
+    "version": "0.2.2",
     "repository": {
       "type": "git",
       "url": "git://github.com/cojohn/node_klout.git"

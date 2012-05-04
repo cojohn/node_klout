@@ -1,6 +1,6 @@
 var Klout = require("../lib/node_klout"),
-    klout_v1 = new Klout("rvqe44h4b3w2atm7k4xg7sna"),
-    klout_v2 = new Klout("b27wgpx67zarxkq436d7ezgt", "json", "v2"),
+    klout_v1 = new Klout("YOUR_API_KEY"),
+    klout_v2 = new Klout("YOUR_API_V2_KEY", "json", "v2"),
 	assert = require("assert"),
 	events = require("events"),
 	util = require("util");
@@ -8,7 +8,7 @@ var Klout = require("../lib/node_klout"),
 var Test = function() {
 	this.failed = 0;
 	this.finished = 0;
-	this.expected = 12;
+	this.expected = 13;
 	
 	events.EventEmitter.call(this);
 }
@@ -69,6 +69,16 @@ test.on("runVersionTwoTests", function(klout_id) {
 			test.emit("finishedTest", ex);	
 		}
 	});	
+	klout_v2.getUserNetworkHandle(klout_id, function(error, klout_response) {
+		try {
+			assert.equal(klout_response.network, "tw", "Invalid network.");
+			assert.equal("" + klout_response.id, "" + 151230368, "Invalid network identifier.");			
+			test.emit("finishedTest");	
+		}
+		catch (ex) {
+			test.emit("finishedTest", ex);	
+		}
+	});
 });
 
 
