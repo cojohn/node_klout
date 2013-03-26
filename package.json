@@ -1,8 +1,12 @@
 {
     "author": "Christopher John <cojohn@gmail.com>",
+    "contributors": [
+      {"name": "Christopher John", "github": "cojohn"},
+      {"name": "m-abaei-ngpvan", "github": "m-abaei-ngpvan"}
+    ],
     "name": "node_klout",
     "description": "Klout API wrapper.",
-    "version": "0.2.2",
+    "version": "0.2.3",
     "repository": {
       "type": "git",
       "url": "git://github.com/cojohn/node_klout.git"
