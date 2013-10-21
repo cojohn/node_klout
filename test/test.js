@@ -1,5 +1,5 @@
 var Klout = require("../lib/node_klout");
-var klout_v2 = new Klout("sv9np333hu4rcyjpc5s3te4x");
+var klout_v2 = new Klout("<api key>");
 var assert = require("assert");
 var events = require("events");
 var util = require("util");
