@@ -64,37 +64,3 @@ klout_v2.getUserNetworkHandle(klout_id, function(error, klout_response) {
 	// Returns a user's network (Twitter) identifier
 });
 ```
-
-
-## Version 1
-
-All methods are supported:
-
-```javascript
-var Klout = require("node_klout"),
-	klout = new Klout("YOUR_KEY");
-
-klout.getKlout("_cojohn", function(error, users) {
-	console.log(users);
-});
-
-klout.getSingleKlout("_cojohn", function(error, score) {
-	console.log(score);
-});
-
-klout.getShow("_cojohn", function(error, users) {
-	console.log(users);
-});
-	
-klout.getTopics("_cojohn", function(error, users) {
-	console.log(users);
-});
-
-klout.getInfluencedBy("_cojohn", function(error, users) {
-	console.log(users);
-});
-
-klout.getInfluencerOf("_cojohn", function(error, users) {
-	console.log(users);
-});
-```
