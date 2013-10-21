@@ -1,5 +1,10 @@
+if(!process.env.API_KEY){
+    console.log("!!! Please specify your Klout API key using the API_KEY argument.");
+    process.exit();
+}
+
 var Klout = require("../lib/node_klout");
-var klout_v2 = new Klout("<api key>");
+var klout_v2 = new Klout(process.env.API_KEY);
 var assert = require("assert");
 var events = require("events");
 var util = require("util");
