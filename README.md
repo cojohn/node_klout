@@ -1,11 +1,11 @@
 # node_klout
 
-Simple wrapper for the Klout API. Users is an array. The constructor supports passing XML, but I haven't implemented that yet. Like the API, users is always an array.
+Simple wrapper for the Klout API.
 
 To run the tests, edit `./test/test.js`, replacing YOUR_KEY with your application's API key, then:
 
 ```
-node test/test
+API_KEY=<your Klout API key> node test/test
 ```
 
 ## Version v2
@@ -14,14 +14,7 @@ In order to use the `v2` API, instantiate a new instance of node_klout like so:
 
 ```javascript
 var Klout = require("node_klout"),
-	klout = new Klout("YOUR_V2_KEY", "json", "v2");
-```
-
-or:
-
-```javascript
-var Klout = require("node_klout"),
-	klout = new Klout().setKey("YOUR_V2_KEY").setVersion("v2");
+	klout = new Klout("YOUR_V2_KEY");
 ```
 
 Node_klout supports the retrieval of a user's Klout identifier by Twitter screen name or numeric identifier.
