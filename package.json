@@ -7,7 +7,7 @@
     ],
     "name": "node_klout",
     "description": "Klout API wrapper.",
-    "version": "0.2.3",
+    "version": "0.2.4",
     "repository": {
       "type": "git",
       "url": "git://github.com/cojohn/node_klout.git"
