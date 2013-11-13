@@ -1,20 +1,23 @@
-var Klout = require("../lib/node_klout"),
-    klout_v1 = new Klout("YOUR_API_KEY"),
-    klout_v2 = new Klout("YOUR_API_V2_KEY", "json", "v2"),
-	assert = require("assert"),
-	events = require("events"),
-	util = require("util");
+if(!process.env.API_KEY){
+    console.log("!!! Please specify your Klout API key using the API_KEY argument.");
+    process.exit();
+}
+
+var Klout = require("../lib/node_klout");
+var klout_v2 = new Klout(process.env.API_KEY);
+var assert = require("assert");
+var events = require("events");
+var util = require("util");
 
 var Test = function() {
 	this.failed = 0;
 	this.finished = 0;
-	this.expected = 13;
+	this.expected = 7;
 	
 	events.EventEmitter.call(this);
-}
+};
 
 util.inherits(Test, events.EventEmitter);
-
 var test = new Test();
 
 test.on("finishedTest", function(error) {
@@ -28,7 +31,7 @@ test.on("finishedTest", function(error) {
 	if (this.finished === this.expected) {
 		console.log("Finished " + this.expected + " test. (" + this.failed + " failed)");
 		process.exit();
-	} 
+	}
 });
 
 test.on("runVersionTwoTests", function(klout_id) {
@@ -83,7 +86,7 @@ test.on("runVersionTwoTests", function(klout_id) {
 
 
 // Get Klout identity from Twitter screen name
-klout_v2.getKloutIdentity("_cojohn", function(error, klout_user) {
+klout_v2.getKloutIdentity("_cojohn","tw", function(error, klout_user) {
 	try {
 		assert.equal(klout_user.id, "1212702", "Invalid klout user identity.");
 		assert.equal(klout_user.network, "ks", "Invalid network.");
@@ -96,7 +99,7 @@ klout_v2.getKloutIdentity("_cojohn", function(error, klout_user) {
 });
 
 // Get Klout identity from Twitter id
-klout_v2.getKloutIdentity(151230368, function(error, klout_user) {
+klout_v2.getKloutIdentity(151230368, 'tw', function(error, klout_user) {
 	try {
 		assert.equal(klout_user.id, "1212702", "Invalid klout user identity.");
 		assert.equal(klout_user.network, "ks", "Invalid network.");
@@ -105,42 +108,4 @@ klout_v2.getKloutIdentity(151230368, function(error, klout_user) {
 	catch (ex) {
 		test.emit("finishedTest", ex);
 	}
-});
-
-klout_v1.getKlout("_cojohn", function(error, klout_response) {
-	try {
-		assert.equal(isNaN(klout_response.users[0].kscore), false, "Invalid klout score.");
-		assert.equal(klout_response.users[0].twitter_screen_name, "_cojohn", "Invalid twitter screen name.");
-		test.emit("finishedTest");
-	}
-	catch (ex) {
-		test.emit("finishedTest", ex);
-	}
-});
-
-klout_v1.getSingleKlout("_cojohn", function(error, score) {
-	try {
-		assert.equal(isNaN(score), false, "Invalid Klout score.");
-		test.emit("finishedTest");		
-	}
-	catch (ex) {
-		test.emit("finishedTest", ex);		
-	}
-
-});
-
-klout_v1.getShow("_cojohn", function(error, users) {
-	test.emit("finishedTest");
-});
-
-klout_v1.getTopics("_cojohn", function(error, users) {
-	test.emit("finishedTest");
-});
-
-klout_v1.getInfluencedBy("_cojohn", function(error, users) {
-	test.emit("finishedTest");
-});
-
-klout_v1.getInfluencerOf("_cojohn", function(error, users) {
-	test.emit("finishedTest");
 });
