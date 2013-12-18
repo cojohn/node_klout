@@ -1,4 +1,4 @@
-if(!process.env.API_KEY){
+if(!process.env.API_KEY) {
     console.log("!!! Please specify your Klout API key using the API_KEY argument.");
     process.exit();
 }
@@ -12,7 +12,7 @@ var util = require("util");
 var Test = function() {
 	this.failed = 0;
 	this.finished = 0;
-	this.expected = 7;
+	this.expected = 8;
 	
 	events.EventEmitter.call(this);
 };
@@ -87,6 +87,19 @@ test.on("runVersionTwoTests", function(klout_id) {
 
 // Get Klout identity from Twitter screen name
 klout_v2.getKloutIdentity("_cojohn","tw", function(error, klout_user) {
+	try {
+		assert.equal(klout_user.id, "1212702", "Invalid klout user identity.");
+		assert.equal(klout_user.network, "ks", "Invalid network.");
+		test.emit("runVersionTwoTests", klout_user.id);
+		test.emit("finishedTest");
+	}
+	catch (ex) {
+		test.emit("finishedTest", ex);
+	}
+});
+
+// Get Klout identity from Twitter screen name
+klout_v2.getKloutIdentity("_cojohn", function(error, klout_user) {
 	try {
 		assert.equal(klout_user.id, "1212702", "Invalid klout user identity.");
 		assert.equal(klout_user.network, "ks", "Invalid network.");
